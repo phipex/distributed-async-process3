@@ -15,7 +15,7 @@ class BasicSimulation extends Simulation {
     val scn = scenario("BasicSimulation")
         .exec(
         http("Request")
-            .get("/greeting")
+            .get("/greeting/new")
             .check(status.in(200 to 210))
         )
         .exitHereIfFailed
