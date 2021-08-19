@@ -41,15 +41,15 @@ public class AsyncProcessServiceImpl implements AsyncProcessService{
 
         if(availablePermits == 0){
             final boolean trySetPermits = semaphore.trySetPermits(1);
-            //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask trySetPermits" + trySetPermits);
+            System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask trySetPermits" + trySetPermits);
         }
         final boolean tryAcquire = semaphore.tryAcquire();
-        //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask " + tryAcquire + " availablePermits = " + availablePermits);
+        System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask " + tryAcquire + " availablePermits = " + availablePermits);
         if(tryAcquire){
-            //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask adquire");
+            System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask adquire");
             addTasks();
             semaphore.release();
-            //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask release");
+            System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayAddTask release");
         }
 
     }
@@ -82,15 +82,15 @@ public class AsyncProcessServiceImpl implements AsyncProcessService{
 
         if(availablePermits == 0){
             final boolean trySetPermits = semaphore.trySetPermits(1);
-            //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask trySetPermits" + trySetPermits);
+            System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask trySetPermits" + trySetPermits);
         }
         final boolean tryAcquire = semaphore.tryAcquire();
-        //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask " + tryAcquire + " availablePermits = " + availablePermits);
+        System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask " + tryAcquire + " availablePermits = " + availablePermits);
         if(tryAcquire){
-            //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask adquire");
+            System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask adquire");
             processTaskList();
             semaphore.release();
-            //System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask release");
+            System.out.println("AsyncProcessServiceImpl.scheduleFixedDelayProcessTask release");
         }
 
 

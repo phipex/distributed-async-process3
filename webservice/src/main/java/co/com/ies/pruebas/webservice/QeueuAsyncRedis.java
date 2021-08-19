@@ -3,6 +3,7 @@ package co.com.ies.pruebas.webservice;
 import org.redisson.api.*;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Queue;
 
@@ -53,7 +54,9 @@ public class QeueuAsyncRedis  extends QueueAsyncAbstract<Greeting> {
     }
 
     private Optional<Greeting> findByTaskId(Greeting element, Queue<Greeting> queue) {
-        return queue.stream().filter(item -> {
+        return queue.stream()
+                .filter(Objects::nonNull)
+                .filter(item -> {
             final Long id = item.getId();
             return id.equals(element.getId());
         }).findFirst();

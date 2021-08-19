@@ -69,7 +69,7 @@ public class FinishedTasckRedis extends QueueAsyncAbstract<Greeting> {
             queue.remove(first.get());
             return true;
         }
-        System.out.println("QeueuAsyncRedis.remove no habia sido agregada >>>>>>>>>>>>>>>>");
+        System.out.println("FinishedTasckRedis.remove no habia sido agregada >>>>>>>>>>>>>>>>");
 
         return false;
     }
@@ -83,7 +83,7 @@ public class FinishedTasckRedis extends QueueAsyncAbstract<Greeting> {
 
     @Override
     protected void processElement(Greeting element) {
-        System.out.println("QeueuAsyncRedis.processElement "+ element);
+        System.out.println("FinishedTasckRedis.processElement "+ element);
 
     }
 
